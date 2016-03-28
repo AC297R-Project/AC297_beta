@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+
 def beta_hedging(betas, market, portfolio):
     """
     Performs beta-hedging, given a portfolio, a market, and beta forecasts.
@@ -38,7 +41,7 @@ def beta_hedging(betas, market, portfolio):
         
         # Daily returns of the portfolio and the hedge
         portfolio_price_change = portfolio_sellprice - portfolio_buyprice
-        hedge_price_change = betasvals[i]*price_ratio*(market_sellprice-market_buyprice)
+        hedge_price_change = betasvals[day]*price_ratio*(market_sellprice-market_buyprice)
         
         # Daily returns are the difference between the portfolio and the hedge
         returns[day] = portfolio_price_change - hedge_price_change
