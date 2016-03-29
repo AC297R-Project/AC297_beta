@@ -168,8 +168,16 @@ class Hedge(object):
         return self._dollar_portfolio.sum(axis=1)
 
     @property
+    def dollar_portfolio_sum_ret(self):
+        return self._dollar_portfolio.sum(axis=1).pct_change()
+
+    @property
     def dollar_market_sum(self):
         return self._dollar_market.sum(axis=1)
+
+    @property
+    def dollar_market_sum_ret(self):
+        return self._dollar_market.sum(axis=1).pct_change()
 
     @property
     def stockuniverse(self):
