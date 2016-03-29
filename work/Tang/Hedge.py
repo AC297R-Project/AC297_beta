@@ -37,7 +37,7 @@ class Hedge(object):
 
         self._spy = spy[[i in self.allstockdf.Date.values for i in spy.Date]]
         self.allstockdf = self.allstockdf.set_index(['Date'])
-        self._spy = self._spy.set_index(['Date'])
+        self._spy = self._spy.set_index(['Date']).sort_index()
 
         assert len(self._spy) == len(self.allstockdf)
         
@@ -51,11 +51,13 @@ class Hedge(object):
     def generateRandomPort(self, size = 20):
         self._portfolio = np.random.choice(self.allstockdf.columns, size)
         self._portfolio_size = len(self._portfolio)
+        self.generate_dollar_portfolio()
         return self._portfolio
 
     def generateRandomMarket(self, size = 20):
         self._market = np.random.choice(self.allstockdf.columns, size)
         self._market_size = len(self._market)
+        self.generate_dollar_market()
         return self._market
 
     @property
@@ -73,7 +75,7 @@ class Hedge(object):
         return self.allstockdf[list(self._market)]
 
     @property
-    def dollar_market(self, start_val = 1000, allocation = None):
+    def generate_dollar_market(self, start_val = 1000, allocation = None):
         """
         allocation: list of weights, if None, assuming equal money value
         """
@@ -83,8 +85,10 @@ class Hedge(object):
             assert len(allocation) == self._market_size
         self._dollar_market = self._create_dollar_portfolio(self.marketdf, start_val, allocation)
 
+    @property
+    def dollar_market(self):
         return self._dollar_market
-    
+
     @property
     def portfolio(self):
         return self._portfolio
@@ -103,8 +107,7 @@ class Hedge(object):
     def spy(self):
         return self._spy['Adj Close']
 
-    @property
-    def dollar_portfolio(self, start_val = 1000, allocation = None):
+    def generate_dollar_portfolio(self, start_val = 1000, allocation = None):
         """
         allocation: list of weights, if None, assuming equal money value
         """
@@ -116,6 +119,8 @@ class Hedge(object):
             assert len(allocation) == self._portfolio_size
         self._dollar_portfolio = self._create_dollar_portfolio(self.portfoliodf, start_val, allocation)
 
+    @property
+    def dollar_portfolio(self):
         return self._dollar_portfolio
 
     def _create_dollar_portfolio(self, portfolio, starting_value, weights):
