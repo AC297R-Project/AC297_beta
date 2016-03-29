@@ -4,21 +4,19 @@ def volatility(portfolio, market=None):
 	"""
 	Volatility of portfolio returns.
 	"""
-
-    return np.std(portfolio)
+	return np.std(portfolio)
 
 def correlation(portfolio, market):
 	"""
 	Correlation of portfolio returns with market returns.
 	"""
-    return np.abs(np.corrcoef(portfolio, market)[0, 1])
+	return np.abs(np.corrcoef(portfolio, market)[0, 1])
 
 def neg_sharpe(portfolio, market=None):
 	"""
 	Negative portfolio returns Sharpe ratio (smaller is better).
 	"""
-
-    return -np.mean(portfolio) / np.std(portfolio)
+	return -np.mean(portfolio) / np.std(portfolio)
 
 def neg_returns(portfolio, market=None):
 	"""
