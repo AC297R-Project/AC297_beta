@@ -74,7 +74,6 @@ class Hedge(object):
     def marketdf(self):
         return self.allstockdf[list(self._market)]
 
-    @property
     def generate_dollar_market(self, start_val = 1000, allocation = None):
         """
         allocation: list of weights, if None, assuming equal money value
