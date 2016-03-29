@@ -1,8 +1,8 @@
-def correlation(portfolio, market):
-    return np.corrcoef(portfolio, market)[0, 1]
+def correlation(portfolio, spy):
+    return np.corrcoef(portfolio, spy)[0, 1]
 
-def volatility(portfolio):
+def volatility(portfolio, spy=None):
     return portfolio.std()
 
-def sharpe(portfolio):
+def sharpe(portfolio, spy=None):
     return portfolio.mean() / portfolio.std()
