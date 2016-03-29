@@ -101,7 +101,7 @@ class Hedge(object):
 
     @property
     def spy(self):
-        return self._spy
+        return self._spy['Adj Close']
 
     @property
     def dollar_portfolio(self, start_val = 1000, allocation = None):
