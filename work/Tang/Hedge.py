@@ -69,6 +69,7 @@ class Hedge(object):
         assert all([i in self.allstockdf.columns for i in market])
         self._market = market
         self._market_size = len(self._market)
+        self.generate_dollar_market()
 
     @property
     def marketdf(self):
@@ -97,6 +98,8 @@ class Hedge(object):
         assert all([i in self.allstockdf.columns for i in portfolio])
         self._portfolio = portfolio
         self._portfolio_size = len(self._portfolio)
+        self.generate_dollar_portfolio()
+
     
     @property
     def portfoliodf(self):
