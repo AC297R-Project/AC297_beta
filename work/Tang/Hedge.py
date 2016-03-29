@@ -52,6 +52,38 @@ class Hedge(object):
         self._portfolio = np.random.choice(self.allstockdf.columns, size)
         self._portfolio_size = len(self._portfolio)
         return self._portfolio
+
+    def generateRandomMarket(self, size = 20):
+        self._market = np.random.choice(self.allstockdf.columns, size)
+        self._market_size = len(self._market)
+        return self._market
+
+    @property
+    def market(self):
+        return self._market
+    
+    @market.setter
+    def market(self, market):
+        assert all([i in self.allstockdf.columns for i in market])
+        self._market = market
+        self._market_size = len(self._market)
+
+    @property
+    def marketdf(self):
+        return self.allstockdf[list(self._market)]
+
+    @property
+    def dollar_market(self, start_val = 1000, allocation = None):
+        """
+        allocation: list of weights, if None, assuming equal money value
+        """
+        if allocation == None:
+            allocation = [1.]*self._market_size
+        else:
+            assert len(allocation) == self._market_size
+        self._dollar_market = self._create_dollar_portfolio(self.marketdf, start_val, allocation)
+
+        return self._dollar_market
     
     @property
     def portfolio(self):
@@ -76,8 +108,12 @@ class Hedge(object):
         """
         allocation: list of weights, if None, assuming equal money value
         """
+        
+
         if allocation == None:
             allocation = [1.]*self._portfolio_size
+        else:
+            assert len(allocation) == self._portfolio_size
         self._dollar_portfolio = self._create_dollar_portfolio(self.portfoliodf, start_val, allocation)
 
         return self._dollar_portfolio
@@ -120,5 +156,17 @@ class Hedge(object):
         return self.portfoliodf.pct_change()
 
     @property
+    def market_return(self):
+        return self.marketdf.pct_change()
+
+    @property
     def dollar_portfolio_sum(self):
         return self._dollar_portfolio.sum(axis=1)
+
+    @property
+    def dollar_market_sum(self):
+        return self._dollar_market.sum(axis=1)
+
+    @property
+    def stockuniverse(self):
+        return self.allstockdf.columns
