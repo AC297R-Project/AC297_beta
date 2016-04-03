@@ -1,6 +1,10 @@
-import numpy as np
-from BetaUtils import *
+import sys
+sys.path.append('../../source/')
+
+from BetaUtils import get_beta, beta_hedging_ret
 from Hedge import Hedge
+
+import numpy as np
 
 def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter, energy_func):
     """
@@ -51,7 +55,6 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
     # A running account of the best market found.  This is updated as better markets are found.       
     best_market_energy = energy_func(hedged_returns[1:], spy_returns[1:])
     best_market = hedge.market
-    best_beta = betas
     
     # Initial value for old_E is the initial total value of the starting point.
     old_E = best_market_energy
@@ -67,8 +70,9 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
         
         # Switch the bag up a little bit and recalculate market values and returns.  
         market = list(hedge.market)
-        hedge.market = swap(market, hedge.stockuniverse)
+        hedge.market = _swap(market, hedge.stockuniverse)
         
+        market_values = hedge.dollar_market_sum
         market_returns = hedge.dollar_market_sum_ret
             
         
@@ -94,7 +98,6 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
             if new_E > best_market_energy:
                 best_market_energy = new_E
                 best_market = market
-                best_beta = betas
         # We sometimes accept a decline because this can get us out of a local minimum.
         elif np.random.rand() < np.exp(-delta_E / temperature):
             #market = proposed_proposed
@@ -116,10 +119,9 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
                 temperature = init_temp
     
     hedge.market = best_market
-    return states, best_market, best_beta
+    return states, best_market
 
-
-def swap(market_symbols, year_symbols):
+def _swap(market_symbols, year_symbols):
     """
     Randomly changes the symbols in a market. Can either grow or shrink the market by 1 asset.  
     
@@ -148,3 +150,5 @@ def swap(market_symbols, year_symbols):
         symbol_to_add = np.random.choice(potential_symbols)
         market_symbols.append(symbol_to_add)
         return market_symbols
+
+
