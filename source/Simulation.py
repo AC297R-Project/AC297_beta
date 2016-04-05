@@ -95,9 +95,9 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
             states[i] = new_E
             old_E = new_E
             # Update our running best bag found.
-            if new_E > best_market_energy:
+            if new_E < best_market_energy:
                 best_market_energy = new_E
-                best_market = market
+                best_market = market[:]
         # We sometimes accept a decline because this can get us out of a local minimum.
         elif np.random.rand() < np.exp(-delta_E / temperature):
             #market = proposed_proposed
