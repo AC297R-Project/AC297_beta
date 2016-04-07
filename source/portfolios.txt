@@ -1,0 +1,1 @@
+0,'MNOV', 'LFL', 'ASUR', 'ICLN', 'GCO', 'TMO', 'FJP', 'NPV', 'WCG','DXYN', 'MELI', 'PLCE', 'TEF', 'PNC', 'OFG', 'CARZ', 'DIOD', 'PBR','TMP', 'ENDP'

@@ -1,0 +1,1 @@
+0,'BPOP', 'SORL', 'JRS', 'VTA', 'MHF', 'BRS', 'CB', 'MXL', 'ASRV','R', 'PAYX', 'SXT', 'AMD', 'MFC', 'GOF', 'SIR', 'SAL', 'CBAK','FRME', 'ATLS', 'GORO', 'NTZ', 'ABAX', 'MAC', 'GSV', 'TLI', 'BCLI','HNT', 'HDB', 'CHEV', 'AMCX', 'MLNX', 'TACT', 'EGLE', 'HSNI', 'PHK','ZAGG', 'KOS', 'GRMN', 'PLCM', 'MHO', 'LF', 'CACC', 'AEZS', 'JCE','APH', 'SMCI', 'SHPG', 'FSYS', 'INFI'
