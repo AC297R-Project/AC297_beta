@@ -47,14 +47,13 @@ def get_beta(stock, market, start=None, end=None, window=60):
     
     for t in range(n_days - window):
         # Choose the window to calculate beta
-        stock_window = stock[t:t+window]
-        market_window = market[t:t+window]
+        stock_window = np.array(stock[t:t+window])
+
+        market_window = np.vstack([np.ones(window), market[t:t+window]]).T
+
+        beta = np.dot(np.linalg.pinv(market_window), stock_window)
         
-        # Use OLS to calculate beta
-        market_window = sm.add_constant(market_window)
-        ols = sm.OLS(endog=stock_window, exog=market_window)
-        alpha, beta = ols.fit().params
-        results[0, t], results[1, t] = alpha, beta
+        results[:,t] = beta.T
         
     return results
 
