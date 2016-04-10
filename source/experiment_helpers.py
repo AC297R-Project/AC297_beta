@@ -33,9 +33,9 @@ def get_params(parameters, param_list):
 	return params
 
 
-def write_results(infile, market_hedged_returns, spy_hedged_returns,
-	unhedged_returns, spy, params, param_list, window):
-	with open(infile, 'a') as f:
+def write_results(outfile, market_hedged_returns, spy_hedged_returns,
+	unhedged_returns, spy, params, param_list, window, states):
+    with open(outfile, 'a') as f:
 		# Write experiment parameters
 		for ii in param_list:
 			f.write('{},'.format(params[ii]))
@@ -55,11 +55,17 @@ def write_results(infile, market_hedged_returns, spy_hedged_returns,
 			-neg_returns(market_hedged_returns)))
 
 		# Write S&P hedged returns
-		f.write('{},{},{},{}\n'.format(
+		f.write('{},{},{},{},'.format(
 			volatility(spy_hedged_returns),
 			correlation(spy_hedged_returns, spy[window+1:]),
 			-neg_sharpe(spy_hedged_returns),
 			-neg_returns(spy_hedged_returns)))
+
+		# Write history of states
+		for state in states:
+			f.write('{},'.format(state))
+
+		f.write('\n')
 
 
 def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
@@ -91,7 +97,7 @@ def simulated_annealing(hedge, init_temp, min_temp, cool_by, reanneal, num_iter,
     best_market: 
         list of the symbols for the best hedging market found
     """
-    
+
     portfolio_values = hedge.dollar_portfolio_sum
     portfolio_returns = hedge.dollar_portfolio_sum_ret
     
@@ -197,7 +203,7 @@ def _swap(market_symbols, year_symbols):
     """
     coin_flip = np.random.binomial(1, 0.5)
     
-    if (coin_flip == 0) and len(market_symbols) > 10: # Shrink the market by one asset
+    if (coin_flip == 0) and len(market_symbols) > 100: # Shrink the market by one asset
         # Pick a random list index and pop that symbol off
         market_symbols.pop(np.random.randint(len(market_symbols)))
         return market_symbols
