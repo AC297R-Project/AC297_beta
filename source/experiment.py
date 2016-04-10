@@ -55,7 +55,6 @@ def experiment():
 		f.readline()  # First line describes file formatting
 		for line in f:
 			parameters.append(line.split(','))
-	print len(parameters)
 
 	# Write header to output file containing parameters and results that will be outputted.
 	with open(outfile, 'w') as f:
@@ -128,7 +127,7 @@ def experiment():
 
 			# Get unhedged returns
 			unhedged_returns = hedge_test.dollar_portfolio_sum_ret[window+1:].values
-			
+
 			# Write results to file
 			write_results(outfile, market_hedged_returns, spy_hedged_returns,
 				unhedged_returns, hedge_test.spy.pct_change(), params, param_list, window, states)
