@@ -10,6 +10,7 @@ from BetaUtils import get_beta, beta_hedging_ret, cum_ret
 from energy_functions import energy
 from Hedge import Hedge
 import matplotlib.pyplot as plt
+import sys
 
 def experiment():
 	# List of parameters that get passed in, as well as written out with the results.
@@ -75,6 +76,7 @@ def experiment():
 	n_experiments = len(parameters)
 	for n in range(n_experiments):
 		try:
+			print 'start iteration {}'.format(n)
 			# Get appropriate portfolio and market.
 			# Reading over each file for each experiment takes a little while, but it's
 			# ulimately insignificant compared to simulated annealing, and it eliminates the
@@ -88,7 +90,6 @@ def experiment():
 			# Drop stocks that are not in both time windows
 			invalid = list((set(hedge.allstockdf.columns) - set(hedge_test.allstockdf.columns)))
 			hedge.allstockdf.drop(invalid, axis=1, inplace=True)
-			p = get_portfolio(params, invalid)
 			hedge.portfolio = get_portfolio(params, invalid)
 			hedge.market = get_market(params, invalid)
 			energy_func = energy(
