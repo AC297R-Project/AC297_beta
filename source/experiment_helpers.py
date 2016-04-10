@@ -9,7 +9,6 @@ def get_portfolio(params, invalid):
 			portfolio = line.replace("'", " ").replace(" ", "").strip().split(',')
 			portfolio = [p for p in portfolio if len(p) > 0]
 			# Check if portfolio ids match.
-			print portfolio[0]
 			if (portfolio[0] == params['portfolio_id']):
 				portfolio = portfolio[1:]
 				return [stock for stock in portfolio if stock not in invalid]
@@ -65,7 +64,7 @@ def write_results(outfile, market_hedged_returns, spy_hedged_returns,
 			-neg_returns(spy_hedged_returns)))
 
 		# Write history of states
-		for state in states:
+		for state in states[::100]:
 			f.write('{},'.format(state))
 
 		f.write('\n')
