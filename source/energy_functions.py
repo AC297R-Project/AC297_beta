@@ -10,7 +10,12 @@ def correlation(portfolio, market):
 	"""
 	Correlation of portfolio returns with market returns.
 	"""
-	return np.abs(np.corrcoef(portfolio, market)[0, 1])
+	try:
+		answer = np.abs(np.corrcoef(portfolio, market)[0, 1])
+		return answer
+	except:
+		raise ValueError('BAD BAD BAD len(portfolio):{} len(market):{}'.format(len(portfolio),
+			len(market)))
 
 def neg_sharpe(portfolio, market=None):
 	"""
