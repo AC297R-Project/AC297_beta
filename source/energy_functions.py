@@ -16,7 +16,7 @@ def neg_sharpe(portfolio, market=None):
 	"""
 	Negative portfolio returns Sharpe ratio (smaller is better).
 	"""
-	return -np.mean(portfolio) / np.std((portfolio))
+	return -np.mean(portfolio) / np.std(portfolio)
 
 def neg_returns(portfolio, market=None):
 	"""
@@ -29,7 +29,7 @@ def neg_returns(portfolio, market=None):
 	# Also adds a first entry of one in order to calculate percentage returns
 	# relative to the initial portfolio value.
 	portfolio = np.concatenate(([1], portfolio + 1))
-	return np.cumprod(portfolio)[-1] - 1
+	return -(np.cumprod(portfolio)[-1] - 1)
 
 def energy(volatility_coef=0, correlation_coef=0, neg_sharpe_coef=0,
 		   neg_returns_coef=0):
