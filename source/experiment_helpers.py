@@ -37,7 +37,7 @@ def get_params(parameters, param_list):
 
 def write_results(outfile, market_hedged_returns, spy_hedged_returns,
 	unhedged_returns, spy, params, param_list, window, states):
-	with open(outfile, 'a') as f:
+	with open(outfile, 'w') as f:
 		# Write experiment parameters
 		for ii in param_list:
 			f.write('{},'.format(params[ii]))
