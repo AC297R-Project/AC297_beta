@@ -125,7 +125,7 @@ def experiment():
 
 
 			# Get unhedged returns
-			unhedged_returns = hedge_test.dollar_portfolio_sum_ret[window+1:].values
+			unhedged_returns = hedge_test.dollar_portfolio_sum_ret.values
 
 			# Write results to file
 			write_results(outfile, market_hedged_returns, spy_hedged_returns,
