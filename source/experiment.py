@@ -45,29 +45,21 @@ def experiment():
 		containing simulated annealing parameters')
 	parser.add_argument('outfile', metavar='out', type=str, nargs=1, help='name of a text file \
 		to store output')
+	parser.add_argument('outbestmarket', metavar='out', type=str, nargs=1, help='name of a text file \
+		to store output')
+	parser.add_argument('outstates', metavar='out', type=str, nargs=1, help='name of a text file \
+		to store output')
 
 	args = parser.parse_args()
 	infile = args.infile[0]
-	outfile = args.outfile[0]
+	outbestmarket = args.outbestmarket[0]
+	outstates = args.outstates[0]
 	parameters = []
 
 	with open(infile, 'r') as f:
 		f.readline()  # First line describes file formatting
 		for line in f:
 			parameters.append(line.split(','))
-
-	# Write header to output file containing parameters and results that will be outputted.
-	with open(outfile, 'w') as f:
-		for ii in param_list:
-			f.write('{},'.format(ii))
-		f.write('{},{},{},{},{},{},{},{},{},{},{},{}\n'.format(
-			'volatility_unhedged', 'correlation_unhedged', 'sharpe_unhedged',
-			'returns_unhedged', 'volatility_markethedged', 'correlation_markethedged',
-			'sharpe_markethedged', 'returns_markethedged', 'volatility_sphedged',
-			'correlation_sphedged', 'sharpe_sphedged', 'returns_sphedged'))
-
-	with open('err.txt', 'w') as f:
-		f.write('ERRORS\n')
 
 	###########################################
 	### Do an experiment and write results. ###
@@ -103,6 +95,13 @@ def experiment():
 				min_temp=float(params['min_temp']), cool_by=float(params['cool_by']),
 				reanneal=int(params['reanneal']), num_iter=int(params['num_iter']),
 				energy_func=energy_func, window=window, verbose=params['verbose'])
+
+
+			with open(outstates, 'a') as f:
+				f.write('{},\n'.format(states))
+
+			with open(outbestmarket, 'a') as f:
+				f.write('{},\n'.format(best_market))
 
 			# Test set
 			# Get returns hedged against optimal market
