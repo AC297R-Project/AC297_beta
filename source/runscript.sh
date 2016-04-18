@@ -9,4 +9,4 @@
 #SBATCH --mail-type=ALL        # Type of email notification- BEGIN,END,FAIL,ALL
 #SBATCH --mail-user=jonathanfriedman@g.harvard.edu # Email to which notifications will be sent
  
-python experiment.py in.txt out.txt
+python experiment.py in.txt out.txt bestmarket.txt outstates.txt
