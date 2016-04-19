@@ -45,7 +45,7 @@ def write_results(outfile, market_hedged_returns, spy_hedged_returns,
 		# Write unhedged statistics
 		f.write('{},{},{},{},'.format(
 			volatility(unhedged_returns),
-			correlation(unhedged_returns, spy),
+			correlation(unhedged_returns, spy[window+1:]),
 			-neg_sharpe(unhedged_returns),
 			-neg_returns(unhedged_returns)))
 
