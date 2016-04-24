@@ -50,12 +50,15 @@ def experiment():
 		to store output')
 	parser.add_argument('outstates', metavar='out', type=str, nargs=1, help='name of a text file \
 		to store output')
+	parser.add_argument('error', metavar='out', type=str, nargs=1, help='name of a text file \
+		to store output')
 
 	args = parser.parse_args()
 	infile = args.infile[0]
 	outfile = args.outfile[0]
 	outbestmarket = args.outbestmarket[0]
 	outstates = args.outstates[0]
+	error = args.error[0]
 	parameters = []
 
 	with open(infile, 'r') as f:
@@ -64,7 +67,7 @@ def experiment():
 			parameters.append(line.split(','))
 
 	# Clear files
-	with open('err.txt', 'w') as f:
+	with open(error, 'w') as f:
 		f.write("Error Header\n")
 
 	with open(outstates, 'w') as f:
@@ -145,7 +148,7 @@ def experiment():
 
 		# If something bad happens, write an error message and run the next iteration
 		except Exception as e:
-			with open('err.txt', 'a') as f:
+			with open(error, 'a') as f:
 				f.write('Exception on run {}: {}\n'.format(n, e))
 				sys.exit()
 

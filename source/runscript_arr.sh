@@ -12,4 +12,5 @@
 python experiment.py in_"${SLURM_ARRAY_TASK_ID}".txt \
 out_"${SLURM_ARRAY_TASK_ID}".txt \
 bestmarket_"${SLURM_ARRAY_TASK_ID}".txt \
-outstates_"${SLURM_ARRAY_TASK_ID}".txt
+outstates_"${SLURM_ARRAY_TASK_ID}".txt \
+error_"${SLURM_ARRAY_TASK_ID}".txt
