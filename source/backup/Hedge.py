@@ -3,7 +3,7 @@ import numpy as np
 
 class Hedge(object):
     
-    def __init__(self, stocksdir = '../data/all_stocks.csv', spydir = '../data/spy.csv', begindate = None, enddate = None, fromlist = None):
+    def __init__(self, stocksdir = '../data/all_stocks.csv', spydir = '../data/spy.csv', begindate = None, enddate = None):
         """
         parameters
         -----
@@ -14,15 +14,8 @@ class Hedge(object):
         """
         # Use AAPL dates to filter
         # preprossessing
-        try:
-            allstockdf = pd.read_csv(stocksdir)
-        except:
-            allstockdf = pd.read_csv('../../data/all_stocks.csv')
-            
-        try:
-            spy = pd.read_csv(spydir)
-        except:
-            spy = pd.read_csv('../../data/spy.csv')
+        allstockdf = pd.read_csv(stocksdir)
+        spy = pd.read_csv(spydir)
 
         idxb = 0
         if begindate != None:
@@ -36,7 +29,6 @@ class Hedge(object):
             
         else:
             allstockdfsliced = allstockdf[idxb:]
-            
         
         # use AAPL as reference column to drop nan rows
         self.allstockdf = allstockdf.iloc[allstockdfsliced['AAPL'].dropna().index]
@@ -47,9 +39,6 @@ class Hedge(object):
         self.allstockdf = self.allstockdf.set_index(['Date'])
         self._spy = self._spy.set_index(['Date']).sort_index()
 
-        reducedstocknames = self._intersect(fromlist, self.allstockdf.columns)
-        self.allstockdf = self.allstockdf[reducedstocknames]
-        
         assert len(self._spy) == len(self.allstockdf)
         
         # initialize portfolio to be empty
@@ -58,9 +47,6 @@ class Hedge(object):
     def _dropRowsAccordingTo(self, df, colname):
         # TODO: may be useful when working on data
         pass
-    
-    def _intersect(self, names1,names2):
-        return list(set(names1).intersection(names2))
     
     def generateRandomPort(self, size = 20):
         self._portfolio = np.random.choice(self.allstockdf.columns, size)
