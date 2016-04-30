@@ -3,7 +3,8 @@ import numpy as np
 
 class Hedge(object):
     
-    def __init__(self, stocksdir = '../data/all_stocks.csv', spydir = '../data/spy.csv', begindate = None, enddate = None, fromlist = None):
+    def __init__(self, stocksdir = '../data/all_stocks.csv', spydir = '../data/spy.csv',
+        begindate = None, enddate = None, fromlist = None):
         """
         parameters
         -----
@@ -46,9 +47,10 @@ class Hedge(object):
         self._spy = spy[[i in self.allstockdf.Date.values for i in spy.Date]]
         self.allstockdf = self.allstockdf.set_index(['Date'])
         self._spy = self._spy.set_index(['Date']).sort_index()
-
-        reducedstocknames = self._intersect(fromlist, self.allstockdf.columns)
-        self.allstockdf = self.allstockdf[reducedstocknames]
+        
+        if fromlist:
+            reducedstocknames = self._intersect(fromlist, self.allstockdf.columns)
+            self.allstockdf = self.allstockdf[reducedstocknames]
         
         assert len(self._spy) == len(self.allstockdf)
         
