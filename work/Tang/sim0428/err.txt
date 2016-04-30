@@ -1,2 +1,0 @@
-Error Header
-Exception on run 3: a must be non-empty

@@ -205,14 +205,15 @@ def _swap(market_symbols, year_symbols):
 	"""
 	coin_flip = np.random.binomial(1, 0.5)
 	
-	if (coin_flip == 0) and len(market_symbols) > 100: # Shrink the market by one asset
+	if ((coin_flip == 0) and len(market_symbols)>5) or len(market_symbols) > 100: # Shrink the market by one asset
 		# Pick a random list index and pop that symbol off
 		market_symbols.pop(np.random.randint(len(market_symbols)))
 		return market_symbols
 	
-	else: # Grow the market by one asset
+	elif len(year_symbols)>len(market_symbols): # Grow the market by one asset
 		# Get a list of the symbols for that year that are not already in the portfolio
 		potential_symbols = list(set(year_symbols) - set(market_symbols))
 		symbol_to_add = np.random.choice(potential_symbols)
 		market_symbols.append(symbol_to_add)
 		return market_symbols
+	return market_symbols
