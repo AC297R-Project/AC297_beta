@@ -17,12 +17,18 @@ class Hedge(object):
         try:
             allstockdf = pd.read_csv(stocksdir)
         except:
-            allstockdf = pd.read_csv('../../data/all_stocks.csv')
+            try:
+                allstockdf = pd.read_csv('../../data/all_stocks.csv')
+            except:
+                allstockdf = pd.read_csv('../../../data/all_stocks.csv')
             
         try:
             spy = pd.read_csv(spydir)
         except:
-            spy = pd.read_csv('../../data/spy.csv')
+            try:
+                spy = pd.read_csv('../../data/spy.csv')
+            except:
+                spy = pd.read_csv('../../../data/spy.csv')
 
         idxb = 0
         if begindate != None:
@@ -47,9 +53,8 @@ class Hedge(object):
         self.allstockdf = self.allstockdf.set_index(['Date'])
         self._spy = self._spy.set_index(['Date']).sort_index()
 
-        if fromlist:
-            reducedstocknames = self._intersect(fromlist, self.allstockdf.columns)
-            self.allstockdf = self.allstockdf[reducedstocknames]
+        reducedstocknames = self._intersect(fromlist, self.allstockdf.columns)
+        self.allstockdf = self.allstockdf[reducedstocknames]
         
         assert len(self._spy) == len(self.allstockdf)
         
