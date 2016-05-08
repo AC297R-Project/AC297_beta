@@ -1,2 +1,0 @@
-begin_date,end_date,test_begin_date,test_end_date,ols_window,starting_market_id,portfolio_id,starting_temp,cool_by,min_temp,reanneal,num_iter,vol,corr,sharpe,returns,verbose
-2013-01-01,2013-12-31,2014-01-01,2014-12-31,60,0,0,0.01,0.99,0.001,100,10,1,0,0,0,1
