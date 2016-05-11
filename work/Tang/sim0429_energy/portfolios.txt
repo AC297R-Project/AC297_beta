@@ -1,5 +1,0 @@
-0,SSL , NBR , CXO , EMR , NS , EQT , CLR , EQT , RRC , SNP
-1,NOV , XOM , SU , NOV , STO , EMR , BPL , CMI , MRO , VLO
-2,WWD , CLB , INT , COP , BPL , PBA , FTI , EOG , GPOR , PHG
-3,TOT , DVN , XEC , INT , PBR , GEL , PHG , STO , PBR , NS
-4,IEP , PXD , YZC , CVE , MPC , CVX , BPL , CPG , COG , ENB

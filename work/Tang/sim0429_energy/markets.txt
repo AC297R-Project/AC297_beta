@@ -1,5 +1,0 @@
-0, XOM , GE , CVX , E , TOT , SLB , BP , SNP , OXY , BBL
-1, XOM , GE , CVX , E , TOT , SLB , BP , SNP , OXY , BBL
-2, XOM , GE , CVX , E , TOT , SLB , BP , SNP , OXY , BBL
-3, XOM , GE , CVX , E , TOT , SLB , BP , SNP , OXY , BBL
-4, XOM , GE , CVX , E , TOT , SLB , BP , SNP , OXY , BBL

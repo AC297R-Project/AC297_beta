@@ -1,2 +1,0 @@
-0,FISV , STM , FLEX , WDC , MXIM , RHI , ATML , MENT , SNPS , FCS
-1,

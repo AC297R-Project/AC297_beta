@@ -1,5 +1,0 @@
-0 , DVN , GPOR , MMP , TLLP , WFT , PBF , RRC , CXO , YZC , WWD , APA , MPC , PTEN , CLB , BBL , MIC , VET , EQT , ECA , PBR , CMI , NS , NBL , PDCE , BP , XEC , BC , VLO , SUN , CNQ , WNR , CVX , DO , PSX , SLB , COP , XOM , HFC , PAA
-1 , PSX , EMR , TOT , GEL , BC , DO , HES , NBL , CVX , ENB
-2 , MUR , WWD , DVN , STO , HES , SNP , HP , PAA , GE , PBF , HFC , TSO , CMI , TOT , TLLP , ENB , APA , XOM , YZC , FANG , COG , CVX , RES , BHI , VET , XEC , NBR , CLR , NOV , CNQ , EQT , WFT , PSX , RIG , YPF , PTEN , BPL , SU , E , SSL , PBA , MRO , MPC , VLO , ECA , CPG , EGN , IEP , GPOR , MIC , MPLX , BBL , SLB , NS , SWN , SXL , GEL
-3 , PSX , MPLX , NFX , EQT , HP , PHG , BP , E , TLLP , MIC , PDCE , CVX , APA , SNP , WWD , RRC , XOM , WNR , ECA , PBR , NS , BBL , CVE , CMI , MMP , CPG , EMR , FTI , ENB
-4 , GEL , PBR , EGN , MPLX , RRC , CAM , BBL , DRQ , TOT , SU , SLB , CVE , DO , BHI , VLO , SXL , CPG , IEP , NFX , BC , PXD , WWD , SSL , CMI , PDCE , EEP , COP , E , PSX , EMR , MIC , RES , ECA , OXY , XOM

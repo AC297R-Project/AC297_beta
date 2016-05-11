@@ -1,4 +1,3 @@
-# import statsmodels.api as sm
 import numpy as np
 
 def get_beta(stock, market, start=None, end=None, window=60):
