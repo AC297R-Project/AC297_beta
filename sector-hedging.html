@@ -1,1 +1,92 @@
-<!DOCTYPE html><html>  <head>    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">    <title>Ac297 Beta Hedging by AC297R-Project</title>    <link  rel="stylesheet"  href="stylesheets/styles.css">    <link  rel="stylesheet"  href="stylesheets/github-light.css">    <meta  name="viewport"  content="width=device-width">    <!--[if lt IE 9]>    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->  </head>  <body><br>    <div  class="wrapper">      <header>        <h1  style="width: 340px;">Stochastic Methods for Beta Hedging Market          Optimization</h1>        <p  style="width: 345px;">An AC297r Project by</p>        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>          - in collaboration with Quantopian</p>        <h3><a  href="introduction.html">Basic Finance Terminology</a></h3>        <h3><a  href="methods.html">Methods</a></h3>        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a></h3>        <h3><a  href="conclusion.html">Conclusion</a></h3>      </header>      <section>        <h2>Sector Hedging</h2>        <meta  charset="utf-8">        <meta  charset="utf-8">        <p>Occasionally, we want to hedge against the sector instead of the          market in fear that the sector itself would underperform the market.</p>        <p>2014 is good year for the market and several sectors, but energy          suffered a loss of 8%.</p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e0-a245-f3e7-717a-209514733bfc"><img               style="width: 478px; height: 358px;"               src="https://lh3.googleusercontent.com/bQ2Vb9_1a79_UjaZbvYHLo-rIX7BVtCxCYoX1wRT1XInRplEniLdAY9H_OLHywl14kj3ZNP5p6W0AqEb6QLJXCOLympySObtxSfs54tjNjDnZ0tkxi1NznDR90l59NzG0_k3YVCNfBU"               alt="Sector_13_14.png"></b></p>        <p>Simulated annealing energy trace:</p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e0-a246-3f16-2d6a-eff1fd7bec53"><img               style="width: 478px; height: 328px;"               src="https://lh5.googleusercontent.com/Kq7bQBBnNlpK1xU0o9wEllb9tJOHKQSD22ptjXmob2FIwE7mFD877HTmG77U_f4ysIGKGuh0qxYMi6vmQXo_4WVFr4uw-kI9XXjNB1vmm1XTl2efiHGpVuvr04KMpuup67-xw3W1Nw4"               alt="States.png"></b></p>        <p>Returns for energy in 2014:</p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e9-a246-d5c0-c122-6f1ed30aab68"><img               style="width: 478px; height: 328px;"               src="https://lh4.googleusercontent.com/UvchRJMs81KiIBxC0uY8jqqN1msi0J2IhFsXCqgHCWl9TMKG6Ofz2U70b9r9yf1U3O7lg3In97rAPer1IFOKqy_1T2awNhriLTQfGlVgO69BbcFhPd4n--JNM4fAC78IMyknF7I7Cag"               alt="Returns_TSplot.png"></b></p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e9-a247-3a48-e232-81b98f865a7a"><img               style="width: 478px; height: 330px;"               src="https://lh6.googleusercontent.com/WJ0AJ009KZN-cwmIBEhHEaE9mjdNluM5KScTCeDhz2GiZrIPrT7S07YgoEzHZCb2Z14ts7N-_CDet--4jPwNJjOgOy4DF9dm_tqMv-RlVDo4syJlnZFPJuY9dgZlZjDOZ1w5CN5BHnU"               alt="Returns_barplot.png"></b></p>        <p>Volatility:<br>          <b  style="font-weight:normal;"></b></p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-e3489678-a247-af69-33a6-e35f8a7edbc1"><img               style="width: 478px; height: 329px;"               src="https://lh3.googleusercontent.com/o6fre_BLRxLy-DTyKSFCbXEeizak7a0Q4dFT8xidGgY2Jntm0S3KdT_rqexTq4CHal8PDQHteOkHnnO--Bm6WPixk6Q_lk9_fudCl6PAU1ROoN_-s-R52bO9ggpLHTUS2sy_NWXPB6g"               alt="Volatility_barplot.png"></b></p>        <p>Correlation:</p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-e3489678-a248-3b9b-4298-88c19982e30e"><img               style="width: 479px; height: 329px;"               src="https://lh4.googleusercontent.com/MknihuLzhuX5UdTcII8OzwDJoaRbc7fofnxP1nmy1iy1b6wuh0K9__V9zZBl2iDV0AjeY5Lr7upPYfuLjRJXIh6yx9Nn8PZxsPkxySrVqW4M_CO2hv1DfbG6d-GPVBnGSJ6qsdV5bw8"               alt="Correlation_barplot.png"></b></p>        <p><b  style="font-weight:normal;">Returns for Health Care in 2014:</b></p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-e3489696-a248-cfe3-9586-ee4a73005be1"><img               style="width: 478px; height: 330px;"               src="https://lh5.googleusercontent.com/Nsq3gdBcDXdqreEcE22NvetSOGw1B6FTbwd8sY8n4cTK1gNA5pirLLkBZK9uRkAY5hn80TvmM0YftUzFMEYDCrknSPhBu9CJ-wY5LNXFYtjckac3Kte2EEbXnj97uyDEzVYg4x9UUeM"               alt="Returns_barplot.png"></b></p>        <p><b  style="font-weight:normal;">Returns for Technology in 2014:</b></p>        <p>          <meta  charset="utf-8">        </p>        <p>          <meta  charset="utf-8">          <b  style="font-weight:normal;"  id="docs-internal-guid-e3489696-a249-dd7e-1174-264cf020a623"><img               style="width: 478px; height: 329px;"               src="https://lh6.googleusercontent.com/d4cVsa_QXdQ1Gtt3lt-ENSM6pQQ1o8h0Fr17eqZ1ujAmAP7Ic6OrRMeK0ZRTulNGw9P4VjFLywLvCQpFAvvRwO_ktJ47QabgKkmQo0oKOra4qk59dKqFdzRviQaeybMTa54dEHmXsc8"               alt="Returns_barplot.png"></b></p>        <p><b  style="font-weight:normal;"></b><br>          <br>        </p>        <meta  charset="utf-8">        <meta  charset="utf-8">      </section>      <footer>        <p>This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>      </footer>    </div>    <script  src="javascripts/scale.fix.js"></script>  </body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">
+    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">
+    <title>Ac297 Beta Hedging by AC297R-Project</title>
+    <link  rel="stylesheet"  href="stylesheets/styles.css">
+    <link  rel="stylesheet"  href="stylesheets/github-light.css">
+    <meta  name="viewport"  content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->
+  </head>
+  <body>
+    <div  class="wrapper">
+      <header>
+        <h1  style="width: 340px;">Stochastic Methods for Beta Hedging Market
+          Optimization</h1>
+        <p  style="width: 345px;">An AC297r Project by</p>
+        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu
+          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>
+          - in collaboration with Quantopian</p>
+        <h3><a  href="introduction.html">Basic Finance Terminology</a></h3>
+        <h3><a  href="methods.html">Methods</a></h3>
+        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>
+        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>
+        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a></h3>
+        <h3><a  href="conclusion.html">Conclusion</a></h3>
+      </header>
+      <section>
+        <h2>Sector Hedging</h2>
+        <p>Occasionally, we want to hedge against the sector instead of the
+          market in fear that the sector itself would underperform the market.</p>
+        <p>2014 is good year for the market and several sectors, but energy
+          suffered a loss of 8%.</p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e0-a245-f3e7-717a-209514733bfc"><img
+               style="width: 478px; height: 358px;"
+               src="https://lh3.googleusercontent.com/bQ2Vb9_1a79_UjaZbvYHLo-rIX7BVtCxCYoX1wRT1XInRplEniLdAY9H_OLHywl14kj3ZNP5p6W0AqEb6QLJXCOLympySObtxSfs54tjNjDnZ0tkxi1NznDR90l59NzG0_k3YVCNfBU"
+               alt="Sector_13_14.png"></b></p>
+        <p>Simulated annealing energy trace:</p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e0-a246-3f16-2d6a-eff1fd7bec53"><img
+               style="width: 478px; height: 328px;"
+               src="https://lh5.googleusercontent.com/Kq7bQBBnNlpK1xU0o9wEllb9tJOHKQSD22ptjXmob2FIwE7mFD877HTmG77U_f4ysIGKGuh0qxYMi6vmQXo_4WVFr4uw-kI9XXjNB1vmm1XTl2efiHGpVuvr04KMpuup67-xw3W1Nw4"
+               alt="States.png"></b></p>
+        <p>Returns for energy in 2014:</p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e9-a246-d5c0-c122-6f1ed30aab68"><img
+               style="width: 478px; height: 328px;"
+               src="https://lh4.googleusercontent.com/UvchRJMs81KiIBxC0uY8jqqN1msi0J2IhFsXCqgHCWl9TMKG6Ofz2U70b9r9yf1U3O7lg3In97rAPer1IFOKqy_1T2awNhriLTQfGlVgO69BbcFhPd4n--JNM4fAC78IMyknF7I7Cag"
+               alt="Returns_TSplot.png"></b></p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-a43c25e9-a247-3a48-e232-81b98f865a7a"><img
+               style="width: 478px; height: 330px;"
+               src="https://lh6.googleusercontent.com/WJ0AJ009KZN-cwmIBEhHEaE9mjdNluM5KScTCeDhz2GiZrIPrT7S07YgoEzHZCb2Z14ts7N-_CDet--4jPwNJjOgOy4DF9dm_tqMv-RlVDo4syJlnZFPJuY9dgZlZjDOZ1w5CN5BHnU"
+               alt="Returns_barplot.png"></b></p>
+        <p>Volatility:<br>
+          <b  style="font-weight:normal;"></b></p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-e3489678-a247-af69-33a6-e35f8a7edbc1"><img
+               style="width: 478px; height: 329px;"
+               src="https://lh3.googleusercontent.com/o6fre_BLRxLy-DTyKSFCbXEeizak7a0Q4dFT8xidGgY2Jntm0S3KdT_rqexTq4CHal8PDQHteOkHnnO--Bm6WPixk6Q_lk9_fudCl6PAU1ROoN_-s-R52bO9ggpLHTUS2sy_NWXPB6g"
+               alt="Volatility_barplot.png"></b></p>
+        <p>Correlation:</p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-e3489678-a248-3b9b-4298-88c19982e30e"><img
+               style="width: 479px; height: 329px;"
+               src="https://lh4.googleusercontent.com/MknihuLzhuX5UdTcII8OzwDJoaRbc7fofnxP1nmy1iy1b6wuh0K9__V9zZBl2iDV0AjeY5Lr7upPYfuLjRJXIh6yx9Nn8PZxsPkxySrVqW4M_CO2hv1DfbG6d-GPVBnGSJ6qsdV5bw8"
+               alt="Correlation_barplot.png"></b></p>
+        <p><b  style="font-weight:normal;">Returns for Health Care in 2014:</b></p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-e3489696-a248-cfe3-9586-ee4a73005be1"><img
+               style="width: 478px; height: 330px;"
+               src="https://lh5.googleusercontent.com/Nsq3gdBcDXdqreEcE22NvetSOGw1B6FTbwd8sY8n4cTK1gNA5pirLLkBZK9uRkAY5hn80TvmM0YftUzFMEYDCrknSPhBu9CJ-wY5LNXFYtjckac3Kte2EEbXnj97uyDEzVYg4x9UUeM"
+               alt="Returns_barplot.png"></b></p>
+        <p><b  style="font-weight:normal;">Returns for Technology in 2014:</b></p>
+        <p> </p>
+        <p> <b  style="font-weight:normal;"  id="docs-internal-guid-e3489696-a249-dd7e-1174-264cf020a623"><img
+               style="width: 478px; height: 329px;"
+               src="https://lh6.googleusercontent.com/d4cVsa_QXdQ1Gtt3lt-ENSM6pQQ1o8h0Fr17eqZ1ujAmAP7Ic6OrRMeK0ZRTulNGw9P4VjFLywLvCQpFAvvRwO_ktJ47QabgKkmQo0oKOra4qk59dKqFdzRviQaeybMTa54dEHmXsc8"
+               alt="Returns_barplot.png"></b></p>
+        <p><b  style="font-weight:normal;"></b><br>
+          <br>
+        </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>
+      </footer>
+    </div>
+    <script  src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
