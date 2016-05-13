@@ -83,26 +83,32 @@
         <h4>Other hedging strategies that would be interesting to pursue:</h4>
         <p>1) Delta hedging: Hedge the risk associated with price movements in
           the underlying asset by offsetting long and short positions. You make
-          money based on volatility, not returns.<br>
+          money based on volatility, not returns. This is used in options 
+          trading.<br>
           <br>
-          2) Extension to beta hedging (using options that are cheaper): Buying
-          only index put options to hedge the value of a portfolio.<br>
+          2) Extension to beta hedging (using options that are cheaper): Buy
+          only index put options to hedge the value of a portfolio. This would
+          reduce transaction costs.<br>
           <br>
           3) Hedge directly against market volatility by trading VIX.<br>
           <br>
-          4) Long-short portfolio.<br>
-          <br>
-          5) Stay in cash.</p>
+          4) Use a long-short portfolio.<br>
         <p><br>
         </p>
         <h4>Discussions:</h4>
-        <p>1) Is our greedy portfolio selection strategy actually effective?<br>
+        <p>1) Is our greedy portfolio selection strategy actually effective? We
+        strongly suspect that it is not and that we just got lucky, but more tests
+        would decide this conclusively.<br>
           <br>
-          2) Is beta hedging ever the right choice?<br>
+          2) Is beta hedging ever the right choice? Given that there are other 
+          effective methods of reducing market risk while preserving some returns,
+          should you ever use beta hedging over another method?<br>
           <br>
-          3) How would transaction costs affect things?</p>
-        <p>4) Could beta hedging still work while not changing the entire
-          hedging market every quarter?</p>
+          3) How would transaction costs affect things? Could beta hedging still 
+          work while not changing the entire hedging market every quarter? We 
+          could run a meta-optimization algorithm that found the optimal hedging
+          market subject to the constraint that at least <i>p</i>% of stocks must 
+          be the same ast the last hedging market market.</p>
       </section>
       <footer>
         <p>IACS, SEAS, Harvard<br>
