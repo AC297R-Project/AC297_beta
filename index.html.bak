@@ -1,1 +1,48 @@
-<!DOCTYPE html><html>  <head>    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">    <title>Ac297 Beta Hedging by AC297R-Project</title>    <link  rel="stylesheet"  href="stylesheets/styles.css">    <link  rel="stylesheet"  href="stylesheets/github-light.css">    <meta  name="viewport"  content="width=device-width">    <!--[if lt IE 9]>    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->  </head>  <body>    <div  class="wrapper">      <header>        <h1  style="width: 340px;">Stochastic Methods for Beta Hedging Market          Optimization</h1>        <p  style="width: 345px;">An AC297r Project by</p>        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>          - in collaboration with Quantopian</p>        <h3><a  href="introduction.html">Introduction</a></h3>        <h3><a  href="methods.html">Methods</a></h3>        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a><br>        </h3>      </header>      <section>        <h2>Homepage</h2>        <p>Beta hedging is a method of reducing systemic (market) risk. This is          usually accomplished by going short some broad market index fund, such          as the S&amp;P 500 tracking index SPY. We used stochastic optimization          to find a different hedging market to effectively reduce volatility          and correlation with the S&amp;P 500. We found that beta hedging          reduces overall returns, but prevents sharp drops in value during          market crashes.&nbsp; We were generally able to match the performance          of traditional S&amp;P beta hedging, but not outperform it.&nbsp; </p>        <meta  charset="utf-8">        <meta  charset="utf-8">      </section>      <footer>        <p>This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>      </footer>    </div>    <script  src="javascripts/scale.fix.js"></script>  </body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">
+    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">
+    <title>Ac297 Beta Hedging by AC297R-Project</title>
+    <link  rel="stylesheet"  href="stylesheets/styles.css">
+    <link  rel="stylesheet"  href="stylesheets/github-light.css">
+    <meta  name="viewport"  content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->
+  </head>
+  <body>
+    <div  class="wrapper">
+      <header>
+        <h1  style="width: 340px;">Stochastic Methods for Beta Hedging Market
+          Optimization</h1>
+        <p  style="width: 345px;">An AC297r Project by</p>
+        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu
+          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>
+          - in collaboration with Quantopian</p>
+        <h3><a  href="introduction.html">Basic Finance Terminology</a></h3>
+        <h3><a  href="methods.html">Methods</a></h3>
+        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>
+        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>
+        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a></h3>
+        <h3><a  href="conclusion.html">Conclusion<br>
+          </a></h3>
+      </header>
+      <section>
+        <h2>Homepage</h2>
+        <p>Beta hedging is a method of reducing systemic (market) risk. This is
+          usually accomplished by going short some broad market index fund, such
+          as the S&amp;P 500 tracking index SPY. We used stochastic optimization
+          to find a different hedging market to effectively reduce volatility
+          and correlation with the S&amp;P 500. We found that beta hedging
+          reduces overall returns, but prevents sharp drops in value during
+          market crashes.&nbsp; We were generally able to match the performance
+          of traditional S&amp;P beta hedging, but not outperform it.&nbsp; </p>
+      </section>
+      <footer>
+        <p  style="margin-top: -34px; height: 85px;">IACS, SEAS,
+          Harvard<br>This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>
+      </footer>
+    </div>
+    <script  src="javascripts/scale.fix.js"></script>
+  </body>
+</html>

@@ -1,1 +1,114 @@
-<!DOCTYPE html><html>  <head>    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">    <title>Ac297 Beta Hedging by AC297R-Project</title>    <link  rel="stylesheet"  href="stylesheets/styles.css">    <link  rel="stylesheet"  href="stylesheets/github-light.css">    <meta  name="viewport"  content="width=device-width">    <!--[if lt IE 9]>    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->  </head>  <body>    <div  class="wrapper">      <header>        <h1  style="width: 340px;">Stochastic Methods for Beta Hedging Market          Optimization</h1>        <p  style="width: 345px;">An AC297r Project by</p>        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>          - in collaboration with Quantopian</p>        <h3><a  href="introduction.html">Basic Finance Terminology</a></h3>        <h3><a  href="methods.html">Methods</a></h3>        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a></h3>        <h3><a  href="conclusion.html">Conclusion<br>          </a></h3>      </header>      <section>        <h2>Conclusion</h2>        <h4>Experimentation:</h4>        <p>We were able to reduce correlation and volatility over traditional          S&amp;P hedging in our dynamic portfolio Greedy implementation, but          the method returned results that were lower than holding money in          savings accounts would have been in that time.&nbsp; While we did not          ultimately identify a risk management strategy that we believe would          be practical to apply in real life, we did perform careful, thorough,          and systematic experiments that allowed us to confidently conclude          that this beta hedging market optimization is not a promising          direction.&nbsp; </p>        <p>The following list summarizes the experimentation strategies that we          used to reach this conclusion:</p>        <p>1) Runs in different market conditions.&nbsp; We trained and tested          our method in a variety of real-life market conditions, including          during bull markets, volatile markets, free-falling crashes, and early          recoveries.&nbsp; While we did see that we could consistently mitigate          losses during crashes, we always saw that the lost returns during good          times (which are much more common) significantly outweighed the          prevented losses.&nbsp; </p>        <p>2) A variety of portfolios.&nbsp; Within each time period that we          tested, we trained and tested on many portfolios to rule out that we          were overfitting to a particular portfolio.&nbsp; We were able to          generate measures of variability (visualized as error bars or bands in          our plots) in our results in this way, and saw that this level of          variability somewhat higher for our optimized hedged portfolios than          it was for S&amp;P hedged portfolios, and unhedged portfolios.&nbsp;          This allowed us to conclude that while we might improve the measures          of interest (correlation and volatility) on average, the inconsistency          of these results stemming from the stochasticity in our optimization          may dampen the benefits of optimizing for stability.&nbsp; </p>        <p>3) Many repetitions on a single portfolio.&nbsp; We also performed          tests in which we performed the same optimization to a single          portfolio multiple times.&nbsp; In this way, we were able to observe          the variability in results that came solely from the          optimization.&nbsp; While this variability was smaller than the          variability that came from the variety in portfolios in our batch          simulations described above, it was useful to observe that each run of          the optimization did not guarantee the same results, and this would be          important to a user who might be considering using this method instead          of traditional S&amp;P hedging.&nbsp; </p>        <p>4) Long term runs with dynamic portfolios.&nbsp; To observe the          long-term performance of our method, we finally brought together all          of the forms of experimentation described above into a single large          batch experiment, in which we simulated investing continuously over a          period of 10 years, updating the portfolio every 3 months, and          performed the optimization 100 times for the same portfolio in each          quarter.&nbsp; This allowed us to generalize the patterns that we were          seeing in our shorter-term simulations to a long time horizon, and          conclusively say that for a medium investment horizon, the reduction          in correlation and volatility that comes from our method is probably          not worth the loss in long-term returns.&nbsp; </p>        <h4>Other hedging strategies that would be interesting to pursue:</h4>        <p>1) Delta hedging: Hedge the risk associated with price movements in          the underlying asset by offsetting long and short positions. You make          money based on volatility, not returns.<br>          <br>          2) Extension to beta hedging (using options that are cheaper): Buying          only index put options to hedge the value of a portfolio.<br>          <br>          3) Hedge directly against market volatility by trading VIX.<br>          <br>          4) Long-short portfolio.<br>          <br>          5) Stay in cash.</p>        <p><br>        </p>        <h4>Discussions:</h4>        <p>1) Is our greedy portfolio selection strategy actually effective?<br>          <br>          2) Is beta hedging ever the right choice?<br>          <br>          3) How would transaction costs affect things?</p>        <p>4) Could beta hedging still work while not changing the entire          hedging market every quarter?</p>      </section>      <footer>        <p>This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>      </footer>    </div>    <script  src="javascripts/scale.fix.js"></script>  </body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">
+    <meta  http-equiv="X-UA-Compatible"  content="chrome=1">
+    <title>Ac297 Beta Hedging by AC297R-Project</title>
+    <link  rel="stylesheet"  href="stylesheets/styles.css">
+    <link  rel="stylesheet"  href="stylesheets/github-light.css">
+    <meta  name="viewport"  content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>    <![endif]-->
+  </head>
+  <body>
+    <div  class="wrapper">
+      <header>
+        <h1  style="width: 340px;">Stochastic Methods for Beta
+          Hedging Market Optimization</h1>
+        <p  style="width: 345px;">An AC297r Project by</p>
+        <p  style="width: 340px;">Jonathan Friedman, Christian Junge, and Haosu
+          Tang<span  style="color: rgb(34, 34, 34);"><span  style="font-weight: bold;"></span></span>
+          - in collaboration with Quantopian</p>
+        <h3><a  href="introduction.html">Basic Finance Terminology</a></h3>
+        <h3><a  href="methods.html">Methods</a></h3>
+        <h3><a  href="random-portfolio.html">Random Portfolio</a></h3>
+        <h3  style="width: 395px;"><a  href="sector-hedging.html">Sector Hedging</a></h3>
+        <h3><a  href="greedy-portfolio.html">Greedy Portfolio</a></h3>
+        <h3><a  href="conclusion.html">Conclusion<br>
+          </a></h3>
+      </header>
+      <section>
+        <h2>Conclusion</h2>
+        <h4>Experimentation:</h4>
+        <p>We were able to reduce correlation and volatility over traditional
+          S&amp;P hedging in our dynamic portfolio Greedy implementation, but
+          the method returned results that were lower than holding money in
+          savings accounts would have been in that time.&nbsp; While we did not
+          ultimately identify a risk management strategy that we believe would
+          be practical to apply in real life, we did perform careful, thorough,
+          and systematic experiments that allowed us to confidently conclude
+          that this beta hedging market optimization is not a promising
+          direction.&nbsp; </p>
+        <p>The following list summarizes the experimentation strategies that we
+          used to reach this conclusion:</p>
+        <p>1) Runs in different market conditions.&nbsp; We trained and tested
+          our method in a variety of real-life market conditions, including
+          during bull markets, volatile markets, free-falling crashes, and early
+          recoveries.&nbsp; While we did see that we could consistently mitigate
+          losses during crashes, we always saw that the lost returns during good
+          times (which are much more common) significantly outweighed the
+          prevented losses.&nbsp; </p>
+        <p>2) A variety of portfolios.&nbsp; Within each time period that we
+          tested, we trained and tested on many portfolios to rule out that we
+          were overfitting to a particular portfolio.&nbsp; We were able to
+          generate measures of variability (visualized as error bars or bands in
+          our plots) in our results in this way, and saw that this level of
+          variability somewhat higher for our optimized hedged portfolios than
+          it was for S&amp;P hedged portfolios, and unhedged portfolios.&nbsp;
+          This allowed us to conclude that while we might improve the measures
+          of interest (correlation and volatility) on average, the inconsistency
+          of these results stemming from the stochasticity in our optimization
+          may dampen the benefits of optimizing for stability.&nbsp; </p>
+        <p>3) Many repetitions on a single portfolio.&nbsp; We also performed
+          tests in which we performed the same optimization to a single
+          portfolio multiple times.&nbsp; In this way, we were able to observe
+          the variability in results that came solely from the
+          optimization.&nbsp; While this variability was smaller than the
+          variability that came from the variety in portfolios in our batch
+          simulations described above, it was useful to observe that each run of
+          the optimization did not guarantee the same results, and this would be
+          important to a user who might be considering using this method instead
+          of traditional S&amp;P hedging.&nbsp; </p>
+        <p>4) Long term runs with dynamic portfolios.&nbsp; To observe the
+          long-term performance of our method, we finally brought together all
+          of the forms of experimentation described above into a single large
+          batch experiment, in which we simulated investing continuously over a
+          period of 10 years, updating the portfolio every 3 months, and
+          performed the optimization 100 times for the same portfolio in each
+          quarter.&nbsp; This allowed us to generalize the patterns that we were
+          seeing in our shorter-term simulations to a long time horizon, and
+          conclusively say that for a medium investment horizon, the reduction
+          in correlation and volatility that comes from our method is probably
+          not worth the loss in long-term returns.&nbsp; </p>
+        <h4>Other hedging strategies that would be interesting to pursue:</h4>
+        <p>1) Delta hedging: Hedge the risk associated with price movements in
+          the underlying asset by offsetting long and short positions. You make
+          money based on volatility, not returns.<br>
+          <br>
+          2) Extension to beta hedging (using options that are cheaper): Buying
+          only index put options to hedge the value of a portfolio.<br>
+          <br>
+          3) Hedge directly against market volatility by trading VIX.<br>
+          <br>
+          4) Long-short portfolio.<br>
+          <br>
+          5) Stay in cash.</p>
+        <p><br>
+        </p>
+        <h4>Discussions:</h4>
+        <p>1) Is our greedy portfolio selection strategy actually effective?<br>
+          <br>
+          2) Is beta hedging ever the right choice?<br>
+          <br>
+          3) How would transaction costs affect things?</p>
+        <p>4) Could beta hedging still work while not changing the entire
+          hedging market every quarter?</p>
+      </section>
+      <footer>
+        <p>IACS, SEAS, Harvard<br>
+          This project is maintained by <a  href="https://github.com/AC297R-Project">AC297R-Project</a></p>
+      </footer>
+    </div>
+    <script  src="javascripts/scale.fix.js"></script>
+  </body>
+</html>
